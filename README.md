@@ -1,6 +1,6 @@
 # Logstash Codec snowplow
 
-[![Gem Version](https://badge.fury.io/rb/logstash-codec-snowplow.svg)](http://badge.fury.io/rb/logstash-codec-snowplow) [![Build Status](https://travis-ci.org/active-agent/logstash-codec-snowplow.svg?branch=master)](https://travis-ci.org/active-agent/logstash-codec-snowplow)
+[![Gem Version](https://badge.fury.io/rb/logstash-codec-snowplow.svg)](http://badge.fury.io/rb/logstash-codec-snowplow) [![Build Status](https://travis-ci.org/cerebello/logstash-codec-snowplow.svg?branch=master)](https://travis-ci.org/cerebello/logstash-codec-snowplow)
 
 ## Install
 
