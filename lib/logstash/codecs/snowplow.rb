@@ -3,6 +3,7 @@
 require 'json'
 require 'logger'
 require 'logstash/codecs/base'
+require 'logstash/namespace'
 
 # Read serialized Thrift Snowplow enriched-event records as Logstash events
 #
@@ -182,10 +183,12 @@ class LogStash::Codecs::Snowplow < LogStash::Codecs::Base
 
   public
   def decode(data)
-    values = data.to_s.split("\t")
-    hash = Hash[*ENRICHED_EVENT.zip(values).flatten] if values.length == ENRICHED_EVENT.length
-    yield LogStash::Event.new(hash)
-  rescue
-    @logger.error("Fail to decode: #{data.to_s}")
+    begin
+      values = data.to_s.split("\t")
+      hash = Hash[*ENRICHED_EVENT.zip(values).flatten] if values.length == ENRICHED_EVENT.length
+      yield LogStash::Event.new(hash)
+    rescue
+      @logger.error("Fail to decode: #{data.to_s}")
+    end
   end
 end
